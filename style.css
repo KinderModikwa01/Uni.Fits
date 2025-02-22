@@ -1,0 +1,50 @@
+ody {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    color: white;
+    text-align: center;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.hero {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.btn {
+    background: #ff00ff;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.gallery {
+    margin-top: 30px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.image-grid img {
+    width: 100%;
+    border-radius: 10px;
+}
