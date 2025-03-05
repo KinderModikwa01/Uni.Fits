@@ -1,8 +1,12 @@
-ody {
+
+body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(45deg, #ff00ff, #00ffff);
     color: white;
     text-align: center;
+    
+  background-image: url("bgdesert.jpg");
+
 }
 
 .logo img {
