@@ -4,8 +4,12 @@ body {
     background: linear-gradient(45deg, #ff00ff, #00ffff);
     color: white;
     text-align: center;
-    
-  background-image: url("Back.jpg");
+    background-image: url("Back.jpg");
+   
+ 
+  background-repeat: no-repeat;
+  background-position: cover;
+
 
 }
 
