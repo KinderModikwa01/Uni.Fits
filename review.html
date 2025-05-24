@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Reviews - Style Fix Clothing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f8;
+      color: #000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Reviews Page Styles */
+    .reviews-header {
+      padding: 60px 5% 40px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .reviews-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .reviews-header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .reviews-container {
+      padding: 40px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .reviewer-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .review-date {
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .review-stars {
+      color: #FFD700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .review-content {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* FAQ Section Styles */
+    .faq-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      max-width: 800px;
+      margin: 60px auto 40px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.3rem;
+    }
+
+    .faq-question.active::after {
+      content: '-';
+    }
+
+    .faq-answer {
+      color: #555;
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer.show {
+      max-height: 300px;
+    }
+
+    .leave-review {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      max-width: 800px;
+      margin: 60px auto;
+    }
+
+    .leave-review h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #000;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      display: block;
+      margin: 0 auto;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #333;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        border-radius: 8px;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-section,
+      .leave-review {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">STYLE FIX</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="collection.html">Collection</a>
+      <a href="blog.html">Blogs</a>
+      <a href="review.html" class="active">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  </header>
+
+  <section class="reviews-header">
+    <h1>CUSTOMER REVIEWS</h1>
+    <p>See what our customers are saying about our products</p>
+  </section>
+
+  <div class="reviews-container">
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <img src="alfi.jpg" alt="Thando M." class="review-avatar">
+          <div class="reviewer-info">
+            <h3>Thando M.</h3>
+            <div class="review-date">May 15, 2025</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-content">
+          <p>The quality of Style Fix products is unmatched. I've purchased several t-shirts and they've all held up perfectly after many washes. The designs are unique and the fabric is so comfortable.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="alfred.jpg" alt="Lerato K." class="review-avatar">
+          <div class="reviewer-info">
+            <h3>Lerato K.</h3>
+            <div class="review-date">April 28, 2025</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-content">
+          <p>Absolutely love my new hoodie! The fit is perfect and the material is so soft. Only giving 4 stars because shipping took a bit longer than expected, but definitely worth the wait.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="alfi.jpg" alt="David T." class="review-avatar">
+          <div class="reviewer-info">
+            <h3>David T.</h3>
+            <div class="review-date">March 10, 2025</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-content">
+          <p>As someone who cares about ethical production, finding Style Fix was a game-changer. The quality is excellent and I love knowing my clothes were made responsibly. Will definitely be buying more!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">How do I submit a product review?</div>
+        <div class="faq-answer">
+          <p>You can submit a product review by filling out the form at the bottom of this page. Simply provide your name, email address, rating, and your review comments. All reviews are moderated before being published to ensure authenticity.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How long does it take for my review to appear?</div>
+        <div class="faq-answer">
+          <p>We typically process and publish reviews within 2-3 business days. All reviews go through a verification process to ensure they meet our community guidelines.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I edit or remove my review after submitting?</div>
+        <div class="faq-answer">
+          <p>Yes, if you need to edit or remove your review, please contact our customer service team at reviews@stylefix.com with your request and we'll be happy to assist you.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Why was my review not published?</div>
+        <div class="faq-answer">
+          <p>Reviews may not be published if they contain inappropriate language, personal information, or if they don't relate to the actual product experience. We also don't publish reviews that appear to be fake or incentivized.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Do you respond to customer reviews?</div>
+        <div class="faq-answer">
+          <p>Yes, we read and respond to reviews regularly, especially when customers have questions or concerns that we can address. We value all feedback as it helps us improve our products and services.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="leave-review">
+      <h2>Leave Your Review</h2>
+      <form action="thank-you.html" method="GET">
+        <div class="form-group">
+          <label for="review-name">Your Name(s)</label>
+          <input type="text" id="review-name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="review-email">Email Address</label>
+          <input type="email" id="review-email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="review-rating">Rating</label>
+          <select id="review-rating" name="rating" required>
+            <option value="">Select rating</option>
+            <option value="5">★★★★★ (5 stars)</option>
+            <option value="4">★★★★☆ (4 stars)</option>
+            <option value="3">★★★☆☆ (3 stars)</option>
+            <option value="2">★★☆☆☆ (2 stars)</option>
+            <option value="1">★☆☆☆☆ (1 star)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="review-message">Your Review</label>
+          <textarea id="review-message" name="message" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Review</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+
+    // FAQ toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          question.classList.toggle('active');
+          const answer = question.nextElementSibling;
+          answer.classList.toggle('show');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

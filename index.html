@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Style Fix Clothing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f8;
+      color: #000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 5%;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      width: 45%;
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      margin: 20px 0;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background-color: #eee;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #333;
+    }
+
+    .hero-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+      width: 50%;
+      position: relative;
+      max-width: 600px;
+    }
+
+    .hero-images img {
+      width: 120px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .hero-images img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Add a few overlapping styles */
+    .hero-images img:nth-child(2) {
+      position: relative;
+      top: -20px;
+      left: -10px;
+      z-index: 2;
+    }
+
+    .hero-images img:nth-child(5) {
+      position: relative;
+      top: -15px;
+      left: 15px;
+      z-index: 3;
+    }
+
+    .hero-images img:nth-child(8) {
+      position: relative;
+      top: -10px;
+      left: -5px;
+      z-index: 1;
+    }
+
+    /* Collections Section */
+    .collections {
+      padding: 60px 5%;
+      background-color: #fff;
+    }
+
+    .collections h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .collection-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .collection-card {
+      background: #f9f9f9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+
+    .collection-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .collection-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .collection-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .collection-info p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .collection-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background-color: #000;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .collection-btn:hover {
+      background-color: #333;
+    }
+
+    /* New Featured Products Section */
+    .featured-products {
+      padding: 80px 5%;
+      background-color: #f5f5f8;
+      text-align: center;
+    }
+
+    .featured-products h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .featured-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .featured-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .featured-info {
+      padding: 20px;
+    }
+
+    .featured-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .featured-info .price {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    /* Newsletter Section */
+    .newsletter {
+      padding: 80px 5%;
+      background-color: #000;
+      color: white;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #ccc;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 6px 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      padding: 15px 25px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 0 6px 6px 0;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #ddd;
+    }
+
+    @media (max-width: 1200px) {
+      .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-content,
+      .hero-images {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-images {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      .hero-images img {
+        width: 100px;
+        height: 140px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        border-radius: 8px;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .collections {
+        padding: 40px 5%;
+      }
+
+      .collections h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button {
+        width: 100%;
+        border-radius: 6px;
+      }
+
+      .newsletter-form input {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">STYLE FIX</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="collection.html">Collection</a>
+      <a href="blog.html">Blogs</a>
+      <a href="review.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <button class="badge">Exclusive & Trending Collection</button>
+      <h1>Upgrade Your<br>Wardrobe Today</h1>
+      <p>Explore 500+ unique pieces — the perfect blend of style, comfort, and creativity.</p>
+      <a href="shop.html" class="btn">Shop Now →</a>
+    </div>
+
+    <div class="hero-images">
+      <img src="bag1.jpg" alt="Image 1">
+      <img src="cushion3.jpg" alt="Image 2">
+      <img src="bag2.jpg" alt="Image 3">
+      <img src="cup1.jpg" alt="Image 4">
+      <img src="cap2.jpg" alt="Image 5">
+      <img src="stylefix.hoodie.jpg" alt="Image 6">
+      <img src="cushion1.jpg" alt="Image 7">
+      <img src="sweater8.jpg" alt="Image 8">
+      <img src="yaweh.hoodie.jpg" alt="Image 9">
+      <img src="pouch8.jpg" alt="Image 10">
+      <img src="bag3.jpg" alt="Image 11">
+      <img src="sweater4.jpg" alt="Image 12">
+    </div>
+  </section>
+
+  <!-- Collections Section -->
+  <section class="collections">
+    <div class="collection-cards">
+      <div class="collection-card">
+        <img src="thebattle.tshirt.jpg" alt="T-shirts">
+        <div class="collection-info">
+          <h3>T-shirts</h3>
+          <p>Complete your look with our stylish accessories</p>
+          <a href="#" class="collection-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="collection-card">
+        <img src="yaweh2.hoodie.jpg" alt="Hoodies">
+        <div class="collection-info">
+          <h3>Hoodies</h3>
+          <p>Trendy and comfortable outfits for women</p>
+          <a href="#" class="collection-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="collection-card">
+        <img src="sweater4.jpg" alt="Sweaters">
+        <div class="collection-info">
+          <h3>Sweaters</h3>
+          <p>Functional and fashionable bags for your journeys</p>
+          <a href="#" class="collection-btn">Shop Now</a>
+        </div>
+      </div>
+      <div class="collection-card">
+        <img src="hat8.jpg" alt="Bucket Hats">
+        <div class="collection-info">
+          <h3>Bucket Hats</h3>
+          <p>Sharp and sophisticated styles for men</p>
+          <a href="#" class="collection-btn">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <h2>This Month's Featured</h2>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <img src="strong.tshirt.jpg" alt="Strong T-shirt">
+        <div class="featured-info">
+          <h3>Strong T-shirt</h3>
+          <div class="price">P120.00</div>
+          <a href="#" class="collection-btn">View Details</a>
+        </div>
+      </div>
+      <div class="featured-card">
+        <img src="purpose.tshirt.jpg" alt="Purpose T-shirt">
+        <div class="featured-info">
+          <h3>Purpose T-shirt</h3>
+          <div class="price">P120.00</div>
+          <a href="#" class="collection-btn">View Details</a>
+        </div>
+      </div>
+      <div class="featured-card">
+        <img src="faith.pouch.jpg" alt="Faith Pouch">
+        <div class="featured-info">
+          <h3>Faith Pouch</h3>
+          <div class="price">P80.00</div>
+          <a href="#" class="collection-btn">View Details</a>
+        </div>
+      </div>
+      <div class="featured-card">
+        <img src="hat4.jpg" alt="Signature Hat">
+        <div class="featured-info">
+          <h3>Jesus Bucket Hat</h3>
+          <div class="price">P70.00</div>
+          <a href="#" class="collection-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+    <a href="shop.html" class="btn">View All Products</a>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <h2>Join Our Community</h2>
+    <p>Subscribe to our newsletter for exclusive offers, new arrivals, and style tips.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
